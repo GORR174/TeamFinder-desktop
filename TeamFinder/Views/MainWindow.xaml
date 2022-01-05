@@ -1,0 +1,57 @@
+﻿<Window x:Class="TeamFinder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TeamFinder"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="1280">
+    
+    <Window.Resources>
+        <ControlTemplate TargetType="TextBox" x:Key="BasicTextBoxTemplate">
+            <Grid>
+                <Border CornerRadius="10" Padding="4">
+                    <Border.Background>White</Border.Background>
+                    <TextBox Name="te" Background="Transparent" BorderThickness="0" FontSize="24" Width="300" />
+                </Border>
+            </Grid>
+        </ControlTemplate>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.Background>
+            #151B2D
+        </Grid.Background>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="6*" />
+        </Grid.ColumnDefinitions>
+        
+        
+        <Grid>
+            <Grid.Background>
+                <ImageBrush 
+                    ImageSource="../Resources/Images/loginbg.png" 
+                    Stretch="UniformToFill" 
+                    Opacity="0.7"/>
+            </Grid.Background>
+        </Grid>
+        
+        <Grid Grid.Column="1">
+            <StackPanel Margin="48 100 32 32" HorizontalAlignment="Left">
+                <TextBlock 
+                    Foreground="White" 
+                    FontSize="30">
+                    Login into TeamFinder
+                </TextBlock>
+                
+                <TextBox Text="" Margin="0 40 0 0" Template="{StaticResource BasicTextBoxTemplate}" />
+                
+                <TextBox Text="" Margin="0 40 0 0" Template="{StaticResource BasicTextBoxTemplate}" />
+                
+                <Button Margin="0 80 0 0" Content="Login" Command="{Binding LoginCommand}"></Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
