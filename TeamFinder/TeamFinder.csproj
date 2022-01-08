@@ -109,12 +109,18 @@
         <Compile Include="DTO\Response\BaseResponseDto.cs" />
         <Compile Include="DTO\Response\LoginResponseDto.cs" />
         <Compile Include="Extensions\RestClientExtensions.cs" />
-        <Compile Include="Repository\AuthRepository.cs" />
-        <Compile Include="Repository\IAuthRepository.cs" />
-        <Compile Include="ViewModels\LoginScreenViewModel.cs" />
-        <Compile Include="Views\MainWindow.xaml.cs">
+        <Compile Include="MainWindow.xaml.cs">
           <DependentUpon>MainWindow.xaml</DependentUpon>
           <SubType>Code</SubType>
+        </Compile>
+        <Compile Include="Repository\AuthRepository.cs" />
+        <Compile Include="Repository\IAuthRepository.cs" />
+        <Compile Include="ViewModels\LoginPageViewModel.cs" />
+        <Compile Include="Views\LoginPage.xaml.cs">
+          <DependentUpon>LoginPage.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\MainPage.xaml.cs">
+          <DependentUpon>MainPage.xaml</DependentUpon>
         </Compile>
     </ItemGroup>
     <ItemGroup>
@@ -141,11 +147,13 @@
       </Content>
     </ItemGroup>
     <ItemGroup>
-      <Page Include="Resources\xaml\Styles.xaml" />
-      <Page Include="Views\MainWindow.xaml">
+      <Page Include="MainWindow.xaml">
         <Generator>MSBuild:Compile</Generator>
         <SubType>Designer</SubType>
       </Page>
+      <Page Include="Resources\xaml\Styles.xaml" />
+      <Page Include="Views\LoginPage.xaml" />
+      <Page Include="Views\MainPage.xaml" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
