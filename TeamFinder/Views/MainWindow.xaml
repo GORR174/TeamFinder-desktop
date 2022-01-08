@@ -7,17 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280">
     
-    <Window.Resources>
-        <ControlTemplate TargetType="TextBox" x:Key="BasicTextBoxTemplate">
-            <Grid>
-                <Border CornerRadius="10" Padding="4">
-                    <Border.Background>White</Border.Background>
-                    <TextBox Name="te" Background="Transparent" BorderThickness="0" FontSize="24" Width="300" />
-                </Border>
-            </Grid>
-        </ControlTemplate>
-    </Window.Resources>
-    
     <Grid>
         <Grid.Background>
             #151B2D
@@ -46,11 +35,17 @@
                     Login into TeamFinder
                 </TextBlock>
                 
-                <TextBox Text="" Margin="0 40 0 0" Template="{StaticResource BasicTextBoxTemplate}" />
+                <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" 
+                         Margin="0 40 0 0" 
+                         Style="{StaticResource BasicTextBoxStyle}" />
                 
-                <TextBox Text="" Margin="0 40 0 0" Template="{StaticResource BasicTextBoxTemplate}" />
+                <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" 
+                         Margin="0 40 0 0" 
+                         Style="{StaticResource BasicTextBoxStyle}" />
                 
-                <Button Margin="0 80 0 0" Content="Login" Command="{Binding LoginCommand}"></Button>
+                <Button Margin="0 80 0 0" 
+                        Content="Login" 
+                        Command="{Binding LoginCommand}" />
             </StackPanel>
         </Grid>
     </Grid>

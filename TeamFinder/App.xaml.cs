@@ -1,5 +1,7 @@
 ﻿using System.Windows;
 using Ninject;
+using RestSharp;
+using TeamFinder.Repository;
 
 namespace TeamFinder
 {
@@ -18,6 +20,9 @@ namespace TeamFinder
         private void ConfigureContainer()
         {
             container = new StandardKernel();
+
+            container.Bind<RestClient>().ToConstant(new RestClient("http://localhost:8075/api"));
+            container.Bind<IAuthRepository>().To<AuthRepository>();
         }
 
         private void ComposeObjects()

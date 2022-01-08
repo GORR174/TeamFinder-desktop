@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTemplate TargetType="TextBox" x:Key="BasicTextBoxTemplate">
+        <Grid>
+            <Border CornerRadius="10" Padding="4" Height="44" Width="300">
+                <Border.Background>White</Border.Background>
+                <ScrollViewer x:Name="PART_ContentHost" />
+            </Border>
+        </Grid>
+    </ControlTemplate>
+        
+    <Style x:Key="BasicTextBoxStyle" TargetType="TextBox">
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="Template" Value="{StaticResource BasicTextBoxTemplate}" />
+    </Style>
+</ResourceDictionary>
