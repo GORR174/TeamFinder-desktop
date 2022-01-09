@@ -42,13 +42,16 @@
                 
                 <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" 
                          Margin="0 40 0 0" 
-                         Style="{StaticResource BasicTextBoxStyle}" />
+                         FontFamily="../Resources/Fonts/#Password"
+                         Padding="0 4 0 0"
+                         Style="{StaticResource BasicTextBoxStyle}">
+                </TextBox>
                 
                 <Button Margin="0 80 0 0" 
                         Content="Login" 
                         Command="{Binding LoginCommand}">
                     <Button.Style>
-                        <Style TargetType="Button">
+                        <Style TargetType="Button" BasedOn="{StaticResource BasicButtonStyle}">
                             <Setter Property="Visibility" Value="Visible"></Setter>
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding Path=IsLoading}" Value="True">
@@ -59,10 +62,7 @@
                     </Button.Style>
                 </Button>
                 
-                <Rectangle x:Name="LoadingProgressBar" Width="64" Height="64" Margin="0 60 0 0" RenderTransformOrigin="0.5, 0.5">
-                    <Rectangle.Fill>
-                        <SolidColorBrush Color="Red"/>
-                    </Rectangle.Fill>
+                <Rectangle Fill="{StaticResource PrimaryColorBrush}" x:Name="LoadingProgressBar" Width="64" Height="64" Margin="0 60 0 0" RenderTransformOrigin="0.5, 0.5">
                     <Rectangle.OpacityMask>
                         <ImageBrush ImageSource="../Resources/Images/progressbar_circle.png"/>
                     </Rectangle.OpacityMask>

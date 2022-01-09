@@ -1,16 +1,51 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
     <ControlTemplate TargetType="TextBox" x:Key="BasicTextBoxTemplate">
         <Grid>
-            <Border CornerRadius="10" Padding="4" Height="44" Width="300">
-                <Border.Background>White</Border.Background>
+            <Border Background="{TemplateBinding Background}" BorderBrush="{StaticResource PrimaryColorBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10" Padding="10 4 10 4" Height="44" Width="300">
                 <ScrollViewer x:Name="PART_ContentHost" />
             </Border>
         </Grid>
     </ControlTemplate>
+    
+    <ControlTemplate TargetType="Button" x:Key="BasicButtonTemplate">
+        <Grid>
+            <Border CornerRadius="24" Padding="4" Height="48" Width="300" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}">
+                <AdornerDecorator HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ContentPresenter x:Name="Content" />
+                </AdornerDecorator>
+            </Border>
+        </Grid>
+    </ControlTemplate>
+    
+    <Style x:Key="BasicButtonStyle" TargetType="Button">
+        <Setter Property="Template" Value="{StaticResource BasicButtonTemplate}" />
+        <Setter Property="Background" Value="{StaticResource PrimaryColorBrush}" />
+        <Setter Property="FontSize" Value="24" />
+        
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#5B6DE7"></Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="#4351AC"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
         
     <Style x:Key="BasicTextBoxStyle" TargetType="TextBox">
         <Setter Property="FontSize" Value="24" />
         <Setter Property="Template" Value="{StaticResource BasicTextBoxTemplate}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Background" Value="#272A44" />
+        <Setter Property="Foreground" Value="White" />
+        
+        <Style.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <!-- <Setter Property="BorderThickness" Value="2" /> -->
+                <Setter Property="Background" Value="#303353"></Setter>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>
